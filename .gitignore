@@ -1,0 +1,35 @@
+# Go
+bin/
+*.exe
+*.test
+*.out
+coverage.out
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code (local settings)
+.claude/
+
+# OMC (local agent state)
+.omc/
+
+# Node (web frontend)
+web/node_modules/
+web/.next/
+web/out/
+
+# Docker volumes
+pgdata/
+redisdata/

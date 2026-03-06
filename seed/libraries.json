@@ -1,0 +1,93 @@
+[
+  {"name": "axios", "registry": "npm", "package_name": "axios", "github_repo": "axios/axios", "description": "Promise based HTTP client for the browser and node.js", "categories": ["http-client"]},
+  {"name": "got", "registry": "npm", "package_name": "got", "github_repo": "sindresorhus/got", "description": "Human-friendly and powerful HTTP request library for Node.js", "categories": ["http-client"]},
+  {"name": "ky", "registry": "npm", "package_name": "ky", "github_repo": "sindresorhus/ky", "description": "Tiny and elegant HTTP client based on the Fetch API", "categories": ["http-client"]},
+  {"name": "undici", "registry": "npm", "package_name": "undici", "github_repo": "nodejs/undici", "description": "An HTTP/1.1 client, written from scratch for Node.js", "categories": ["http-client"]},
+  {"name": "node-fetch", "registry": "npm", "package_name": "node-fetch", "github_repo": "node-fetch/node-fetch", "description": "A light-weight module that brings Fetch API to Node.js", "categories": ["http-client"]},
+  {"name": "ofetch", "registry": "npm", "package_name": "ofetch", "github_repo": "unjs/ofetch", "description": "Better fetch API. Works on node, browser and workers", "categories": ["http-client"]},
+
+  {"name": "prisma", "registry": "npm", "package_name": "prisma", "github_repo": "prisma/prisma", "description": "Next-generation ORM for Node.js and TypeScript", "categories": ["orm-database"]},
+  {"name": "drizzle-orm", "registry": "npm", "package_name": "drizzle-orm", "github_repo": "drizzle-team/drizzle-orm", "description": "Headless TypeScript ORM with a head", "categories": ["orm-database"]},
+  {"name": "knex", "registry": "npm", "package_name": "knex", "github_repo": "knex/knex", "description": "A query builder for SQL databases", "categories": ["orm-database"]},
+  {"name": "typeorm", "registry": "npm", "package_name": "typeorm", "github_repo": "typeorm/typeorm", "description": "ORM for TypeScript and JavaScript", "categories": ["orm-database"]},
+  {"name": "sequelize", "registry": "npm", "package_name": "sequelize", "github_repo": "sequelize/sequelize", "description": "Feature-rich ORM for modern Node.js", "categories": ["orm-database"]},
+  {"name": "kysely", "registry": "npm", "package_name": "kysely", "github_repo": "kysely-org/kysely", "description": "A type-safe typescript SQL query builder", "categories": ["orm-database"]},
+
+  {"name": "passport", "registry": "npm", "package_name": "passport", "github_repo": "jaredhanson/passport", "description": "Simple, unobtrusive authentication for Node.js", "categories": ["auth"]},
+  {"name": "lucia", "registry": "npm", "package_name": "lucia", "github_repo": "lucia-auth/lucia", "description": "Authentication, simple and clean", "categories": ["auth"]},
+  {"name": "next-auth", "registry": "npm", "package_name": "next-auth", "github_repo": "nextauthjs/next-auth", "description": "Authentication for the Web", "categories": ["auth"]},
+  {"name": "jose", "registry": "npm", "package_name": "jose", "github_repo": "panva/jose", "description": "JWA, JWS, JWE, JWT, JWK for Node.js, Deno, and Browsers", "categories": ["auth"]},
+  {"name": "bcrypt", "registry": "npm", "package_name": "bcrypt", "github_repo": "kelektiv/node.bcrypt.js", "description": "A library to help you hash passwords", "categories": ["auth"]},
+
+  {"name": "vitest", "registry": "npm", "package_name": "vitest", "github_repo": "vitest-dev/vitest", "description": "Next generation testing framework powered by Vite", "categories": ["testing"]},
+  {"name": "jest", "registry": "npm", "package_name": "jest", "github_repo": "jestjs/jest", "description": "Delightful JavaScript Testing", "categories": ["testing"]},
+  {"name": "mocha", "registry": "npm", "package_name": "mocha", "github_repo": "mochajs/mocha", "description": "Simple, flexible, fun JavaScript test framework for Node.js", "categories": ["testing"]},
+  {"name": "playwright", "registry": "npm", "package_name": "playwright", "github_repo": "microsoft/playwright", "description": "Playwright is a framework for Web Testing and Automation", "categories": ["testing"]},
+  {"name": "cypress", "registry": "npm", "package_name": "cypress", "github_repo": "cypress-io/cypress", "description": "Fast, easy and reliable testing for anything that runs in a browser", "categories": ["testing"]},
+
+  {"name": "commander", "registry": "npm", "package_name": "commander", "github_repo": "tj/commander.js", "description": "The complete solution for node.js command-line interfaces", "categories": ["cli-framework"]},
+  {"name": "yargs", "registry": "npm", "package_name": "yargs", "github_repo": "yargs/yargs", "description": "Yargs helps you build interactive command line tools", "categories": ["cli-framework"]},
+  {"name": "inquirer", "registry": "npm", "package_name": "inquirer", "github_repo": "SBoudrias/Inquirer.js", "description": "A collection of common interactive command line user interfaces", "categories": ["cli-framework"]},
+  {"name": "clipanion", "registry": "npm", "package_name": "clipanion", "github_repo": "arcanis/clipanion", "description": "Type-safe CLI library with no runtime dependencies", "categories": ["cli-framework"]},
+  {"name": "citty", "registry": "npm", "package_name": "citty", "github_repo": "unjs/citty", "description": "Elegant CLI builder", "categories": ["cli-framework"]},
+
+  {"name": "winston", "registry": "npm", "package_name": "winston", "github_repo": "winstonjs/winston", "description": "A logger for just about everything", "categories": ["logging"]},
+  {"name": "pino", "registry": "npm", "package_name": "pino", "github_repo": "pinojs/pino", "description": "Super fast, all natural JSON logger", "categories": ["logging"]},
+  {"name": "consola", "registry": "npm", "package_name": "consola", "github_repo": "unjs/consola", "description": "Elegant Console Logger for Node.js and Browser", "categories": ["logging"]},
+  {"name": "tslog", "registry": "npm", "package_name": "tslog", "github_repo": "fullstack-build/tslog", "description": "Universal TypeScript logger", "categories": ["logging"]},
+  {"name": "loglevel", "registry": "npm", "package_name": "loglevel", "github_repo": "pimterry/loglevel", "description": "Minimal lightweight logging for JavaScript", "categories": ["logging"]},
+
+  {"name": "sharp", "registry": "npm", "package_name": "sharp", "github_repo": "lovell/sharp", "description": "High performance Node.js image processing", "categories": ["file-processing"]},
+  {"name": "papaparse", "registry": "npm", "package_name": "papaparse", "github_repo": "mholt/PapaParse", "description": "Fast and powerful CSV parser for the browser and Node.js", "categories": ["file-processing"]},
+  {"name": "exceljs", "registry": "npm", "package_name": "exceljs", "github_repo": "exceljs/exceljs", "description": "Excel Workbook Manager", "categories": ["file-processing"]},
+  {"name": "pdf-lib", "registry": "npm", "package_name": "pdf-lib", "github_repo": "Hopding/pdf-lib", "description": "Create and modify PDF documents in any JavaScript environment", "categories": ["file-processing"]},
+  {"name": "mammoth", "registry": "npm", "package_name": "mammoth", "github_repo": "mwilliamson/mammoth.js", "description": "Convert Word documents to simple HTML and Markdown", "categories": ["file-processing"]},
+
+  {"name": "zod", "registry": "npm", "package_name": "zod", "github_repo": "colinhacks/zod", "description": "TypeScript-first schema validation with static type inference", "categories": ["validation"]},
+  {"name": "yup", "registry": "npm", "package_name": "yup", "github_repo": "jquense/yup", "description": "Schema builder for runtime value parsing and validation", "categories": ["validation"]},
+  {"name": "joi", "registry": "npm", "package_name": "joi", "github_repo": "hapijs/joi", "description": "The most powerful data validation library for JS", "categories": ["validation"]},
+  {"name": "ajv", "registry": "npm", "package_name": "ajv", "github_repo": "ajv-validator/ajv", "description": "The fastest JSON schema Validator", "categories": ["validation"]},
+  {"name": "valibot", "registry": "npm", "package_name": "valibot", "github_repo": "fabian-hiller/valibot", "description": "The modular and type safe schema library", "categories": ["validation"]},
+  {"name": "typebox", "registry": "npm", "package_name": "@sinclair/typebox", "github_repo": "sinclairzx81/typebox", "description": "Json Schema Type Builder with Static Type Resolution for TypeScript", "categories": ["validation"]},
+
+  {"name": "date-fns", "registry": "npm", "package_name": "date-fns", "github_repo": "date-fns/date-fns", "description": "Modern JavaScript date utility library", "categories": ["date-time"]},
+  {"name": "dayjs", "registry": "npm", "package_name": "dayjs", "github_repo": "iamkun/dayjs", "description": "2kB immutable date-time library alternative to Moment.js", "categories": ["date-time"]},
+  {"name": "luxon", "registry": "npm", "package_name": "luxon", "github_repo": "moment/luxon", "description": "A library for working with dates and times in JS", "categories": ["date-time"]},
+  {"name": "tempo", "registry": "npm", "package_name": "@formkit/tempo", "github_repo": "formkit/tempo", "description": "Parse, format, manipulate, and internationalize dates and times", "categories": ["date-time"]},
+
+  {"name": "zustand", "registry": "npm", "package_name": "zustand", "github_repo": "pmndrs/zustand", "description": "Bear necessities for state management in React", "categories": ["state-management"]},
+  {"name": "jotai", "registry": "npm", "package_name": "jotai", "github_repo": "pmndrs/jotai", "description": "Primitive and flexible state management for React", "categories": ["state-management"]},
+  {"name": "valtio", "registry": "npm", "package_name": "valtio", "github_repo": "pmndrs/valtio", "description": "Valtio makes proxy-state simple for React and Vanilla", "categories": ["state-management"]},
+  {"name": "nanostores", "registry": "npm", "package_name": "nanostores", "github_repo": "nanostores/nanostores", "description": "A tiny state manager for React, Preact, Vue, Svelte, and vanilla JS", "categories": ["state-management"]},
+  {"name": "xstate", "registry": "npm", "package_name": "xstate", "github_repo": "statelyai/xstate", "description": "Actor-based state management & orchestration for complex app logic", "categories": ["state-management"]},
+
+  {"name": "express", "registry": "npm", "package_name": "express", "github_repo": "expressjs/express", "description": "Fast, unopinionated, minimalist web framework for Node.js", "categories": ["web-framework"]},
+  {"name": "fastify", "registry": "npm", "package_name": "fastify", "github_repo": "fastify/fastify", "description": "Fast and low overhead web framework for Node.js", "categories": ["web-framework"]},
+  {"name": "hono", "registry": "npm", "package_name": "hono", "github_repo": "honojs/hono", "description": "Web framework built on Web Standards", "categories": ["web-framework"]},
+  {"name": "elysia", "registry": "npm", "package_name": "elysia", "github_repo": "elysiajs/elysia", "description": "Ergonomic Framework for Humans", "categories": ["web-framework"]},
+  {"name": "h3", "registry": "npm", "package_name": "h3", "github_repo": "unjs/h3", "description": "Minimal H(TTP) framework built for high performance", "categories": ["web-framework"]},
+  {"name": "koa", "registry": "npm", "package_name": "koa", "github_repo": "koajs/koa", "description": "Expressive HTTP middleware framework for node.js", "categories": ["web-framework"]},
+
+  {"name": "octokit", "registry": "npm", "package_name": "octokit", "github_repo": "octokit/octokit.js", "description": "The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno", "categories": ["api-client"]},
+  {"name": "aws-sdk", "registry": "npm", "package_name": "@aws-sdk/client-s3", "github_repo": "aws/aws-sdk-js-v3", "description": "AWS SDK for JavaScript v3", "categories": ["api-client"]},
+  {"name": "stripe", "registry": "npm", "package_name": "stripe", "github_repo": "stripe/stripe-node", "description": "Node.js library for the Stripe API", "categories": ["api-client"]},
+  {"name": "googleapis", "registry": "npm", "package_name": "googleapis", "github_repo": "googleapis/google-api-nodejs-client", "description": "Google's officially supported Node.js client library for Google APIs", "categories": ["api-client"]},
+  {"name": "openai", "registry": "npm", "package_name": "openai", "github_repo": "openai/openai-node", "description": "The official TypeScript library for the OpenAI API", "categories": ["api-client"]},
+
+  {"name": "ioredis", "registry": "npm", "package_name": "ioredis", "github_repo": "redis/ioredis", "description": "A robust, performance-focused Redis client for Node.js", "categories": ["caching"]},
+  {"name": "node-cache", "registry": "npm", "package_name": "node-cache", "github_repo": "node-cache/node-cache", "description": "A simple in-memory caching module", "categories": ["caching"]},
+  {"name": "keyv", "registry": "npm", "package_name": "keyv", "github_repo": "jaredwray/keyv", "description": "Simple key-value storage with support for multiple backends", "categories": ["caching"]},
+  {"name": "lru-cache", "registry": "npm", "package_name": "lru-cache", "github_repo": "isaacs/node-lru-cache", "description": "A fast cache that automatically deletes the least recently used items", "categories": ["caching"]},
+  {"name": "unstorage", "registry": "npm", "package_name": "unstorage", "github_repo": "unjs/unstorage", "description": "Universal Storage Layer", "categories": ["caching"]},
+
+  {"name": "bullmq", "registry": "npm", "package_name": "bullmq", "github_repo": "taskforcesh/bullmq", "description": "BullMQ - Premium Message Queue for NodeJS based on Redis", "categories": ["queue-messaging"]},
+  {"name": "amqplib", "registry": "npm", "package_name": "amqplib", "github_repo": "amqp-node/amqplib", "description": "An AMQP 0-9-1 (RabbitMQ) library and client for Node.JS", "categories": ["queue-messaging"]},
+  {"name": "kafkajs", "registry": "npm", "package_name": "kafkajs", "github_repo": "tulios/kafkajs", "description": "A modern Apache Kafka client for Node.js", "categories": ["queue-messaging"]},
+  {"name": "bee-queue", "registry": "npm", "package_name": "bee-queue", "github_repo": "bee-queue/bee-queue", "description": "A simple, fast, robust job/task queue for Node.js", "categories": ["queue-messaging"]},
+
+  {"name": "langchain", "registry": "npm", "package_name": "langchain", "github_repo": "langchain-ai/langchainjs", "description": "Building applications with LLMs through composability", "categories": ["ai-ml-sdk"]},
+  {"name": "ai", "registry": "npm", "package_name": "ai", "github_repo": "vercel/ai", "description": "Build AI-powered applications with React, Svelte, Vue, and Solid", "categories": ["ai-ml-sdk"]},
+  {"name": "@anthropic-ai/sdk", "registry": "npm", "package_name": "@anthropic-ai/sdk", "github_repo": "anthropics/anthropic-sdk-typescript", "description": "The official TypeScript library for the Anthropic API", "categories": ["ai-ml-sdk"]},
+  {"name": "llamaindex", "registry": "npm", "package_name": "llamaindex", "github_repo": "run-llama/LlamaIndexTS", "description": "Data framework for LLM applications", "categories": ["ai-ml-sdk"]},
+  {"name": "modelfusion", "registry": "npm", "package_name": "modelfusion", "github_repo": "lgrammel/modelfusion", "description": "Build AI applications, chatbots, and agents with JavaScript/TypeScript", "categories": ["ai-ml-sdk"]}
+]

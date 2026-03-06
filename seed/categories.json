@@ -1,0 +1,17 @@
+[
+  {"slug": "http-client", "name": "HTTP Client", "description": "HTTP request libraries"},
+  {"slug": "orm-database", "name": "ORM / Database", "description": "Database ORM and query builders"},
+  {"slug": "auth", "name": "Authentication", "description": "Authentication and authorization libraries"},
+  {"slug": "testing", "name": "Testing", "description": "Test frameworks and utilities"},
+  {"slug": "cli-framework", "name": "CLI Framework", "description": "CLI application frameworks"},
+  {"slug": "logging", "name": "Logging", "description": "Logging libraries"},
+  {"slug": "file-processing", "name": "File Processing", "description": "File processing and transformation"},
+  {"slug": "validation", "name": "Validation", "description": "Data validation and schema libraries"},
+  {"slug": "date-time", "name": "Date / Time", "description": "Date and time handling"},
+  {"slug": "state-management", "name": "State Management", "description": "State management libraries"},
+  {"slug": "web-framework", "name": "Web Framework", "description": "Web server frameworks"},
+  {"slug": "api-client", "name": "API Client", "description": "External API client SDKs"},
+  {"slug": "caching", "name": "Caching", "description": "Caching solutions"},
+  {"slug": "queue-messaging", "name": "Queue / Messaging", "description": "Message queues and event processing"},
+  {"slug": "ai-ml-sdk", "name": "AI / ML SDK", "description": "AI/ML related SDKs and tools"}
+]
