@@ -134,7 +134,7 @@ export default function RecommendPage() {
               {results.data.map((rec: Recommendation) => (
                 <Link
                   key={rec.library.id}
-                  href={`/library/${rec.library.registry}/${rec.library.packageName}`}
+                  href={`/library/${rec.library.registry}/${encodeURIComponent(rec.library.packageName)}`}
                   className="group flex items-center gap-4 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 shadow-sm shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-md hover:-translate-y-0.5"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-sm font-bold text-[var(--primary)]">

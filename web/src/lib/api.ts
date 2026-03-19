@@ -99,7 +99,7 @@ export async function getLibrary(id: string): Promise<Envelope<Library>> {
 }
 
 export async function getLibraryBySlug(registry: string, packageName: string): Promise<Envelope<Library>> {
-  return fetchAPI(`/v1/libraries/${registry}/${packageName}`);
+  return fetchAPI(`/v1/libraries/${encodeURIComponent(registry)}/${encodeURIComponent(packageName)}`);
 }
 
 export async function searchLibraries(query: string): Promise<Envelope<Library[]>> {

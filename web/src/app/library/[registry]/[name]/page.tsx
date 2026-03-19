@@ -7,7 +7,8 @@ export default async function LibraryPage({
 }: {
   params: Promise<{ registry: string; name: string }>;
 }) {
-  const { registry, name } = await params;
+  const { registry, name: rawName } = await params;
+  const name = decodeURIComponent(rawName);
 
   let library;
   try {
@@ -162,7 +163,7 @@ export default async function LibraryPage({
                   {library.alternatives.map((alt) => (
                     <Link
                       key={`${alt.registry}-${alt.packageName}`}
-                      href={`/library/${alt.registry}/${alt.packageName}`}
+                      href={`/library/${alt.registry}/${encodeURIComponent(alt.packageName)}`}
                       className="flex items-center justify-between rounded-lg border border-[var(--card-border)] bg-[var(--surface)] p-3 transition-all hover:border-[var(--primary)]/40 hover:bg-[var(--card-hover)]"
                     >
                       <div>

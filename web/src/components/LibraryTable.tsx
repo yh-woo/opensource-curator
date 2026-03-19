@@ -12,7 +12,7 @@ export function LibraryTable({ libraries }: { libraries: Library[] }) {
       {sorted.map((lib, i) => (
         <Link
           key={lib.id}
-          href={`/library/${lib.registry}/${lib.packageName}`}
+          href={`/library/${lib.registry}/${encodeURIComponent(lib.packageName)}`}
           className="group flex items-center gap-4 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 shadow-sm shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-md hover:-translate-y-0.5"
         >
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--surface)] text-sm font-bold text-[var(--muted)]">
