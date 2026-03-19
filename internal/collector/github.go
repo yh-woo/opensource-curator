@@ -249,7 +249,19 @@ func countCodeBlocks(readme string) int {
 
 func containsDeprecated(readme string) bool {
 	lower := strings.ToLower(readme)
-	return strings.Contains(lower, "deprecated") ||
-		strings.Contains(lower, "unmaintained") ||
-		strings.Contains(lower, "no longer maintained")
+	// Only match self-referential deprecation announcements,
+	// not passing references like "replaces the deprecated X"
+	selfDeprecated := strings.Contains(lower, "this package is deprecated") ||
+		strings.Contains(lower, "this library is deprecated") ||
+		strings.Contains(lower, "this project is deprecated") ||
+		strings.Contains(lower, "this module is deprecated") ||
+		strings.Contains(lower, "this repo is deprecated") ||
+		strings.Contains(lower, "this repository is deprecated") ||
+		strings.Contains(lower, "this repo is no longer maintained") ||
+		strings.Contains(lower, "this repository is no longer maintained") ||
+		strings.Contains(lower, "this package is no longer maintained") ||
+		strings.Contains(lower, "this project is no longer maintained") ||
+		strings.Contains(lower, "no longer actively maintained") ||
+		strings.Contains(lower, "⚠️ deprecated")
+	return selfDeprecated
 }

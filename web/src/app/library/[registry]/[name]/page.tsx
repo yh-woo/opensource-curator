@@ -76,7 +76,7 @@ export default async function LibraryPage({
               rel="noopener noreferrer"
               className="rounded-lg bg-[var(--surface)] px-3 py-1.5 text-[var(--muted)] transition-colors hover:bg-[var(--card-hover)] hover:text-[var(--foreground)]"
             >
-              GitHub &nearr;
+              GitHub &#x2197;
             </a>
           )}
         </div>

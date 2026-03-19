@@ -1,6 +1,5 @@
 package scoring
 
-import "strings"
 
 // PreFilterResult indicates whether a library should be filtered out as deprecated.
 type PreFilterResult struct {
@@ -26,13 +25,8 @@ func PreFilter(data map[string]any) PreFilterResult {
 		return PreFilterResult{Deprecated: true, Reason: "README indicates project is deprecated or unmaintained"}
 	}
 
-	// Also check raw readme content if available
-	if readme, ok := data["readme"].(string); ok {
-		lower := strings.ToLower(readme)
-		if strings.Contains(lower, "deprecated") || strings.Contains(lower, "unmaintained") || strings.Contains(lower, "no longer maintained") {
-			return PreFilterResult{Deprecated: true, Reason: "README indicates project is deprecated or unmaintained"}
-		}
-	}
+	// Raw readme check removed: github collector already sets
+	// readme_has_deprecated with proper self-referential detection
 
 	return PreFilterResult{Deprecated: false}
 }
