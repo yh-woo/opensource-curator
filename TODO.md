@@ -3,8 +3,9 @@
 ## Priority: High
 
 ### Data Quality
-- [ ] **GITHUB_TOKEN 발급 및 적용** - 현재 GitHub API rate limit(60req/hr)으로 GitHub 메트릭 수집 불가. PAT 발급 후 `GITHUB_TOKEN=ghp_xxx make collect` 실행 필요
+- [x] **GITHUB_TOKEN 발급 및 적용** - 완료 (2026-03-20). 77개 라이브러리 전체 GitHub 메트릭 반영 점수 수집 성공
 - [ ] **점수 알고리즘 고도화** - 현재 npm 데이터만 반영. GitHub stars, issues, commit frequency, contributor 수 등 반영 시 정확도 대폭 향상
+- [ ] **LLM 기반 deprecated 판독** - 현재 GitHub archived + npm deprecated 플래그만 신뢰. README 문맥 분석으로 정확도 향상 가능 (키워드 매칭은 오탐 다수로 비활성화됨)
 - [ ] **라이브러리 커버리지 확장** - 현재 77개 라이브러리. Python(PyPI), Rust(crates.io) 등 다른 생태계 추가
 
 ### Frontend
@@ -52,4 +53,4 @@
 
 ---
 
-*Last updated: 2026-03-07*
+*Last updated: 2026-03-20*
