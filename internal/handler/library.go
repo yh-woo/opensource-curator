@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"net/http"
+	"net/url"
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
@@ -102,8 +103,8 @@ func (h *Handler) GetLibrary(w http.ResponseWriter, r *http.Request) {
 
 func (h *Handler) GetLibraryBySlug(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "public, max-age=3600")
-	registry := chi.URLParam(r, "registry")
-	packageName := chi.URLParam(r, "packageName")
+	registry, _ := url.PathUnescape(chi.URLParam(r, "registry"))
+	packageName, _ := url.PathUnescape(chi.URLParam(r, "packageName"))
 
 	lib, err := h.Q.GetLibraryBySlug(r.Context(), db.GetLibraryBySlugParams{
 		Registry:    registry,
