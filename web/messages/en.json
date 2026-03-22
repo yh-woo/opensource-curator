@@ -25,7 +25,7 @@
     "subtitle": "Browse open-source libraries by use case, ranked for AI agent usage.",
     "libraries": "{count} libraries",
     "errorTitle": "Unable to load categories. Is the API server running?",
-    "errorHint": "Run {command} to start the backend."
+    "errorHint": "Run <command>make dev-api</command> to start the backend."
   },
   "category": {
     "back": "← Categories",
@@ -81,7 +81,7 @@
     "whyItMatters": "Why it matters for AI agents",
     "howTitle": "How Scores Are Computed",
     "howP1": "Each metric produces a score from 0 to 100. The overall score is a weighted average using the weights shown above.",
-    "howP2": "Data is collected from the GitHub API and npm registry in real-time. Scores are refreshed during each collection run (daily when the worker is active, or manually via {command}).",
+    "howP2": "Data is collected from the GitHub API and npm registry in real-time. Scores are refreshed during each collection run (daily when the worker is active, or manually via <command>make collect</command>).",
     "howP3": "Libraries flagged as deprecated (via npm or GitHub archived status) receive an overall score of 0, regardless of individual metric scores.",
     "browseScoredLibraries": "Browse Scored Libraries",
     "weight": "{weight}% weight",
