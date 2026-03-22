@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Library } from "@/lib/api";
 import { ScoreBadge } from "./ScoreBadge";
-import { MarkdownText } from "./MarkdownText";
+import { PlainMarkdownText } from "./MarkdownText";
 
 export function LibraryTable({ libraries }: { libraries: Library[] }) {
   const t = useTranslations("libraryTable");
@@ -33,7 +33,7 @@ export function LibraryTable({ libraries }: { libraries: Library[] }) {
               )}
             </div>
             <p className="mt-0.5 text-xs text-[var(--muted)] line-clamp-1">
-              <MarkdownText text={lib.description} />
+              <PlainMarkdownText text={lib.description} />
             </p>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-xs text-[var(--muted-dim)]">

@@ -46,3 +46,21 @@ export function MarkdownText({
     </span>
   );
 }
+
+/**
+ * Strips markdown syntax and renders as plain text.
+ * Use inside <a> or other elements where nested <a> is invalid.
+ */
+export function PlainMarkdownText({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  // Strip [text](url) → text, **bold** → bold
+  const plain = text
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/\*\*(.*?)\*\*/g, "$1");
+  return <span className={className}>{plain}</span>;
+}
