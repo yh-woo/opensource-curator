@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getLibraryBySlug } from "@/lib/api";
 import { ScoreBadge, ScoreBar } from "@/components/ScoreBadge";
+import { MarkdownText } from "@/components/MarkdownText";
 import { Link } from "@/i18n/navigation";
 
 export default async function LibraryPage({
@@ -60,7 +61,7 @@ export default async function LibraryPage({
           )}
         </div>
         <p className="mt-2 text-[var(--muted)] leading-relaxed">
-          {library.description}
+          <MarkdownText text={library.description} />
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
           <span className="rounded-lg bg-[var(--surface)] px-3 py-1.5 text-[var(--muted)]">

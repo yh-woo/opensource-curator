@@ -137,6 +137,7 @@
   "libraryTable": {
     "maint": "유지",
     "api": "API",
-    "docs": "문서"
+    "docs": "문서",
+    "deprecated": "지원 종료"
   }
 }

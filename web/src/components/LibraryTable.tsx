@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Library } from "@/lib/api";
 import { ScoreBadge } from "./ScoreBadge";
+import { MarkdownText } from "./MarkdownText";
 
 export function LibraryTable({ libraries }: { libraries: Library[] }) {
   const t = useTranslations("libraryTable");
@@ -27,12 +28,12 @@ export function LibraryTable({ libraries }: { libraries: Library[] }) {
               </span>
               {lib.deprecated && (
                 <span className="rounded-md bg-[var(--score-poor)]/15 border border-[var(--score-poor)]/25 px-2 py-0.5 text-[10px] font-bold text-[var(--score-poor)]">
-                  DEPRECATED
+                  {t("deprecated")}
                 </span>
               )}
             </div>
             <p className="mt-0.5 text-xs text-[var(--muted)] line-clamp-1">
-              {lib.description}
+              <MarkdownText text={lib.description} />
             </p>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-xs text-[var(--muted-dim)]">
