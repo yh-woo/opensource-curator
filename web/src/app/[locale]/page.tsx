@@ -1,35 +1,37 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Home() {
+  const t = useTranslations("home");
+
   return (
     <div className="space-y-16">
       <section className="py-20 text-center">
         <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--card-border)] bg-[var(--card)] px-4 py-1.5 text-xs text-[var(--muted)] mb-6">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--secondary)] animate-pulse" />
-          Live scoring from GitHub &amp; npm
+          {t("badge")}
         </div>
         <h1 className="mb-4 text-5xl font-extrabold leading-tight tracking-tight">
-          Stop guessing.
+          {t("title1")}
           <br />
-          <span className="text-[var(--primary)]">Score</span> your libraries.
+          <span className="text-[var(--primary)]">{t("title2")}</span>{" "}
+          {t("title3")}
         </h1>
         <p className="mx-auto max-w-xl text-lg text-[var(--muted)] leading-relaxed">
-          AI agents pick libraries based on training-data bias, not actual
-          quality. We fix that with real-time metrics from GitHub, npm, and
-          package registries.
+          {t("subtitle")}
         </p>
         <div className="mt-10 flex justify-center gap-4">
           <Link
             href="/categories"
             className="rounded-xl bg-[var(--primary)] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--primary)]/20 transition-all hover:bg-[var(--primary-hover)] hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:-translate-y-0.5"
           >
-            Browse Categories
+            {t("browseCategories")}
           </Link>
           <Link
             href="/recommend"
             className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-7 py-3 text-sm font-semibold text-[var(--foreground)] transition-all hover:border-[var(--primary)] hover:text-[var(--primary)] hover:-translate-y-0.5"
           >
-            Get Recommendations
+            {t("getRecommendations")}
           </Link>
         </div>
       </section>
@@ -37,19 +39,20 @@ export default function Home() {
       <section className="grid gap-6 md:grid-cols-3">
         <FeatureCard
           icon="01"
-          title="6-Metric Scoring"
-          description="Maintenance health, API clarity, doc quality, security posture, community signal, and deprecation safety."
+          title={t("feature1Title")}
+          description={t("feature1Desc")}
           href="/scoring"
+          learnMore={t("learnMore")}
         />
         <FeatureCard
           icon="02"
-          title="AI Agent Optimized"
-          description="Rankings weighted for what matters to AI agents: clear APIs, good types, low dependency count, and active maintenance."
+          title={t("feature2Title")}
+          description={t("feature2Desc")}
         />
         <FeatureCard
           icon="03"
-          title="Real-Time Data"
-          description="Scores computed from live GitHub and registry metadata, not static popularity lists or training data."
+          title={t("feature3Title")}
+          description={t("feature3Desc")}
         />
       </section>
     </div>
@@ -61,11 +64,13 @@ function FeatureCard({
   title,
   description,
   href,
+  learnMore,
 }: {
   icon: string;
   title: string;
   description: string;
   href?: string;
+  learnMore?: string;
 }) {
   const content = (
     <>
@@ -78,9 +83,9 @@ function FeatureCard({
       <p className="text-sm leading-relaxed text-[var(--muted)]">
         {description}
       </p>
-      {href && (
+      {href && learnMore && (
         <span className="mt-3 inline-block text-xs font-medium text-[var(--primary)]">
-          Learn more &rarr;
+          {learnMore}
         </span>
       )}
     </>

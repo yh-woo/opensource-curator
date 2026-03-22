@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { Recommendation, RecommendResponse } from "@/lib/api";
 import { ScoreBadge } from "@/components/ScoreBadge";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
 
 export default function RecommendPage() {
+  const t = useTranslations("recommend");
   const [task, setTask] = useState("");
   const [prefer, setPrefer] = useState("");
   const [results, setResults] = useState<RecommendResponse | null>(null);
@@ -42,12 +44,9 @@ export default function RecommendPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-extrabold tracking-tight">
-          Get Recommendations
+          {t("title")}
         </h1>
-        <p className="mt-2 text-[var(--muted)]">
-          Describe what you need and get AI-agent-optimized library
-          recommendations.
-        </p>
+        <p className="mt-2 text-[var(--muted)]">{t("subtitle")}</p>
       </div>
 
       <form
@@ -59,14 +58,14 @@ export default function RecommendPage() {
             htmlFor="task"
             className="mb-1.5 block text-sm font-medium text-[var(--foreground)]"
           >
-            What do you need?
+            {t("taskLabel")}
           </label>
           <input
             id="task"
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            placeholder="e.g., make HTTP requests in TypeScript"
+            placeholder={t("taskPlaceholder")}
             className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--input-bg)] px-4 py-3 text-[var(--foreground)] placeholder-[var(--muted-dim)] transition-colors focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]/30"
           />
         </div>
@@ -76,7 +75,7 @@ export default function RecommendPage() {
               htmlFor="prefer"
               className="mb-1.5 block text-sm font-medium text-[var(--foreground)]"
             >
-              Preference
+              {t("preferLabel")}
             </label>
             <select
               id="prefer"
@@ -84,11 +83,11 @@ export default function RecommendPage() {
               onChange={(e) => setPrefer(e.target.value)}
               className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--input-bg)] px-4 py-3 text-[var(--foreground)] transition-colors focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]/30"
             >
-              <option value="">Best overall</option>
-              <option value="lightweight">Lightweight</option>
-              <option value="stable">Stable</option>
-              <option value="secure">Secure</option>
-              <option value="popular">Popular</option>
+              <option value="">{t("preferBest")}</option>
+              <option value="lightweight">{t("preferLightweight")}</option>
+              <option value="stable">{t("preferStable")}</option>
+              <option value="secure">{t("preferSecure")}</option>
+              <option value="popular">{t("preferPopular")}</option>
             </select>
           </div>
           <button
@@ -96,7 +95,7 @@ export default function RecommendPage() {
             disabled={loading || !task.trim()}
             className="shrink-0 rounded-xl bg-[var(--primary)] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--primary)]/20 transition-all hover:bg-[var(--primary-hover)] hover:shadow-xl disabled:opacity-40 disabled:shadow-none disabled:hover:bg-[var(--primary)]"
           >
-            {loading ? "Searching..." : "Search"}
+            {loading ? t("searching") : t("search")}
           </button>
         </div>
       </form>
@@ -111,7 +110,9 @@ export default function RecommendPage() {
         <div className="space-y-4">
           {results.query.matchedCategories.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              <span className="text-sm text-[var(--muted)]">Matched:</span>
+              <span className="text-sm text-[var(--muted)]">
+                {t("matched")}
+              </span>
               {results.query.matchedCategories.map((cat) => (
                 <span
                   key={cat}
@@ -125,9 +126,7 @@ export default function RecommendPage() {
 
           {results.data.length === 0 ? (
             <div className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-8 text-center">
-              <p className="text-[var(--muted)]">
-                No matching libraries found. Try a different description.
-              </p>
+              <p className="text-[var(--muted)]">{t("noResults")}</p>
             </div>
           ) : (
             <div className="space-y-3">

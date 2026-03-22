@@ -1,7 +1,10 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getCategories } from "@/lib/api";
 
 export default async function CategoriesPage() {
+  const t = useTranslations("categories");
+
   let categories;
   try {
     const res = await getCategories();
@@ -13,10 +16,10 @@ export default async function CategoriesPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-extrabold tracking-tight">Categories</h1>
-        <p className="mt-2 text-[var(--muted)]">
-          Browse open-source libraries by use case, ranked for AI agent usage.
-        </p>
+        <h1 className="text-3xl font-extrabold tracking-tight">
+          {t("title")}
+        </h1>
+        <p className="mt-2 text-[var(--muted)]">{t("subtitle")}</p>
       </div>
 
       {categories ? (
@@ -35,7 +38,7 @@ export default async function CategoriesPage() {
               </p>
               {cat.libraryCount != null && (
                 <div className="mt-3 inline-flex items-center rounded-md bg-[var(--primary)]/10 px-2.5 py-1 text-xs font-semibold text-[var(--primary)]">
-                  {cat.libraryCount} libraries
+                  {t("libraries", { count: cat.libraryCount })}
                 </div>
               )}
             </Link>
@@ -43,15 +46,15 @@ export default async function CategoriesPage() {
         </div>
       ) : (
         <div className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-10 text-center shadow-sm">
-          <p className="text-[var(--muted)]">
-            Unable to load categories. Is the API server running?
-          </p>
+          <p className="text-[var(--muted)]">{t("errorTitle")}</p>
           <p className="mt-2 text-sm text-[var(--muted-dim)]">
-            Run{" "}
-            <code className="rounded-md bg-[var(--surface)] px-2 py-0.5 text-[var(--primary)]">
-              make dev-api
-            </code>{" "}
-            to start the backend.
+            {t.rich("errorHint", {
+              command: () => (
+                <code className="rounded-md bg-[var(--surface)] px-2 py-0.5 text-[var(--primary)]">
+                  make dev-api
+                </code>
+              ),
+            })}
           </p>
         </div>
       )}

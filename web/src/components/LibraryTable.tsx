@@ -1,8 +1,10 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { Library } from "@/lib/api";
 import { ScoreBadge } from "./ScoreBadge";
 
 export function LibraryTable({ libraries }: { libraries: Library[] }) {
+  const t = useTranslations("libraryTable");
   const sorted = [...libraries].sort(
     (a, b) => (b.score?.overall ?? 0) - (a.score?.overall ?? 0)
   );
@@ -36,9 +38,9 @@ export function LibraryTable({ libraries }: { libraries: Library[] }) {
           <div className="hidden sm:flex items-center gap-4 text-xs text-[var(--muted-dim)]">
             {lib.score && (
               <>
-                <MetricPill label="Maint" value={lib.score.breakdown.maintenanceHealth} />
-                <MetricPill label="API" value={lib.score.breakdown.apiClarity} />
-                <MetricPill label="Docs" value={lib.score.breakdown.docQuality} />
+                <MetricPill label={t("maint")} value={lib.score.breakdown.maintenanceHealth} />
+                <MetricPill label={t("api")} value={lib.score.breakdown.apiClarity} />
+                <MetricPill label={t("docs")} value={lib.score.breakdown.docQuality} />
               </>
             )}
           </div>

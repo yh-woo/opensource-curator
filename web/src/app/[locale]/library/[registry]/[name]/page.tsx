@@ -1,6 +1,7 @@
+import { useTranslations } from "next-intl";
 import { getLibraryBySlug } from "@/lib/api";
 import { ScoreBadge, ScoreBar } from "@/components/ScoreBadge";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default async function LibraryPage({
   params,
@@ -9,6 +10,7 @@ export default async function LibraryPage({
 }) {
   const { registry, name: rawName } = await params;
   const name = decodeURIComponent(rawName);
+  const t = useTranslations("library");
 
   let library;
   try {
@@ -21,15 +23,15 @@ export default async function LibraryPage({
   if (!library) {
     return (
       <div className="py-20 text-center">
-        <h1 className="text-2xl font-bold">Library not found</h1>
+        <h1 className="text-2xl font-bold">{t("notFound")}</h1>
         <p className="mt-2 text-[var(--muted)]">
-          Could not load {registry}/{name}.
+          {t("notFoundDesc", { registry, name })}
         </p>
         <Link
           href="/categories"
           className="mt-6 inline-flex rounded-xl bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-hover)]"
         >
-          Browse categories
+          {t("browseCategories")}
         </Link>
       </div>
     );
@@ -44,7 +46,7 @@ export default async function LibraryPage({
           href="/categories"
           className="inline-flex items-center gap-1 text-sm text-[var(--muted)] transition-colors hover:text-[var(--primary)]"
         >
-          &larr; Categories
+          {t("back")}
         </Link>
         <div className="mt-3 flex items-center gap-4">
           <h1 className="text-3xl font-extrabold tracking-tight">
@@ -53,7 +55,7 @@ export default async function LibraryPage({
           {library.score && <ScoreBadge score={library.score.overall} />}
           {library.deprecated && (
             <span className="rounded-lg bg-[var(--score-poor)]/15 border border-[var(--score-poor)]/25 px-3 py-1 text-xs font-bold text-[var(--score-poor)]">
-              Deprecated
+              {t("deprecated")}
             </span>
           )}
         </div>
@@ -76,7 +78,7 @@ export default async function LibraryPage({
               rel="noopener noreferrer"
               className="rounded-lg bg-[var(--surface)] px-3 py-1.5 text-[var(--muted)] transition-colors hover:bg-[var(--card-hover)] hover:text-[var(--foreground)]"
             >
-              GitHub &#x2197;
+              {t("github")}
             </a>
           )}
         </div>
@@ -85,34 +87,34 @@ export default async function LibraryPage({
       {b && (
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-5 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-sm shadow-[var(--card-shadow)]">
-            <h2 className="text-lg font-semibold">Score Breakdown</h2>
+            <h2 className="text-lg font-semibold">{t("scoreBreakdown")}</h2>
             <ScoreBar
-              label="Maintenance Health"
+              label={t("maintenanceHealth")}
               score={b.maintenanceHealth}
               weight={0.25}
             />
             <ScoreBar
-              label="API Clarity"
+              label={t("apiClarity")}
               score={b.apiClarity}
               weight={0.2}
             />
             <ScoreBar
-              label="Doc Quality"
+              label={t("docQuality")}
               score={b.docQuality}
               weight={0.15}
             />
             <ScoreBar
-              label="Security Posture"
+              label={t("securityPosture")}
               score={b.securityPosture}
               weight={0.15}
             />
             <ScoreBar
-              label="Community Signal"
+              label={t("communitySignal")}
               score={b.communitySignal}
               weight={0.15}
             />
             <ScoreBar
-              label="Deprecation Safety"
+              label={t("deprecationSafety")}
               score={b.deprecationSafety}
               weight={0.1}
             />
@@ -120,36 +122,33 @@ export default async function LibraryPage({
 
           <div className="space-y-6">
             <div className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-sm shadow-[var(--card-shadow)]">
-              <h2 className="text-lg font-semibold">AI Agent Suitability</h2>
+              <h2 className="text-lg font-semibold">{t("aiSuitability")}</h2>
               <div className="mt-3">
                 {library.score!.overall >= 70 ? (
                   <div className="rounded-lg bg-[var(--score-excellent)]/10 border border-[var(--score-excellent)]/20 p-4">
                     <p className="text-sm font-medium text-[var(--score-excellent)]">
-                      Excellent fit
+                      {t("aiExcellent")}
                     </p>
                     <p className="mt-1 text-sm text-[var(--muted)]">
-                      Well-suited for AI agent usage. Clear APIs, good
-                      documentation, and active maintenance.
+                      {t("aiExcellentDesc")}
                     </p>
                   </div>
                 ) : library.score!.overall >= 50 ? (
                   <div className="rounded-lg bg-[var(--score-fair)]/10 border border-[var(--score-fair)]/20 p-4">
                     <p className="text-sm font-medium text-[var(--score-fair)]">
-                      Moderate fit
+                      {t("aiModerate")}
                     </p>
                     <p className="mt-1 text-sm text-[var(--muted)]">
-                      Usable by AI agents but may have gaps in documentation or
-                      API clarity.
+                      {t("aiModerateDesc")}
                     </p>
                   </div>
                 ) : (
                   <div className="rounded-lg bg-[var(--score-poor)]/10 border border-[var(--score-poor)]/20 p-4">
                     <p className="text-sm font-medium text-[var(--score-poor)]">
-                      Needs improvement
+                      {t("aiPoor")}
                     </p>
                     <p className="mt-1 text-sm text-[var(--muted)]">
-                      May present challenges for AI agent integration. Consider
-                      alternatives.
+                      {t("aiPoorDesc")}
                     </p>
                   </div>
                 )}
@@ -158,7 +157,7 @@ export default async function LibraryPage({
 
             {library.alternatives && library.alternatives.length > 0 && (
               <div className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-sm shadow-[var(--card-shadow)]">
-                <h2 className="text-lg font-semibold">Alternatives</h2>
+                <h2 className="text-lg font-semibold">{t("alternatives")}</h2>
                 <div className="mt-3 space-y-2">
                   {library.alternatives.map((alt) => (
                     <Link
