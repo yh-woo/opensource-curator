@@ -29,6 +29,9 @@ seed:
 collect:
 	go run ./cmd/collect
 
+discover:
+	go run ./cmd/discover
+
 # Code generation
 sqlc:
 	sqlc generate
