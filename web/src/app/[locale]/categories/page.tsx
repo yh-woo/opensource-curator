@@ -4,6 +4,8 @@ import { getCategories } from "@/lib/api";
 
 export default async function CategoriesPage() {
   const t = await getTranslations("categories");
+  const tn = await getTranslations("categoryNames");
+  const td = await getTranslations("categoryDescriptions");
 
   let categories;
   try {
@@ -31,10 +33,10 @@ export default async function CategoriesPage() {
               className="group rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-5 shadow-sm shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-md hover:-translate-y-1"
             >
               <h2 className="font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
-                {cat.name}
+                {tn.has(cat.slug) ? tn(cat.slug) : cat.name}
               </h2>
               <p className="mt-1.5 text-sm text-[var(--muted)] line-clamp-2 leading-relaxed">
-                {cat.description}
+                {td.has(cat.slug) ? td(cat.slug) : cat.description}
               </p>
               {cat.libraryCount != null && (
                 <div className="mt-3 inline-flex items-center rounded-md bg-[var(--primary)]/10 px-2.5 py-1 text-xs font-semibold text-[var(--primary)]">

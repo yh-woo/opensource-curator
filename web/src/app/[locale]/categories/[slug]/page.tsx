@@ -10,6 +10,8 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const t = await getTranslations("category");
+  const tn = await getTranslations("categoryNames");
+  const td = await getTranslations("categoryDescriptions");
 
   let category;
   try {
@@ -46,9 +48,11 @@ export default async function CategoryPage({
           {t("back")}
         </Link>
         <h1 className="mt-2 text-3xl font-extrabold tracking-tight">
-          {category.name}
+          {tn.has(slug) ? tn(slug) : category.name}
         </h1>
-        <p className="mt-1 text-[var(--muted)]">{category.description}</p>
+        <p className="mt-1 text-[var(--muted)]">
+          {td.has(slug) ? td(slug) : category.description}
+        </p>
       </div>
 
       {category.libraries && category.libraries.length > 0 ? (
