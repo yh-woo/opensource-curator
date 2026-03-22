@@ -35,6 +35,12 @@ export default function RootLayout({
                 Categories
               </Link>
               <Link
+                href="/scoring"
+                className="rounded-lg px-3 py-2 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--card)] hover:text-[var(--foreground)]"
+              >
+                Scoring
+              </Link>
+              <Link
                 href="/recommend"
                 className="rounded-lg px-3 py-2 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--card)] hover:text-[var(--foreground)]"
               >

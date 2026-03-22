@@ -39,6 +39,7 @@ export default function Home() {
           icon="01"
           title="6-Metric Scoring"
           description="Maintenance health, API clarity, doc quality, security posture, community signal, and deprecation safety."
+          href="/scoring"
         />
         <FeatureCard
           icon="02"
@@ -59,13 +60,15 @@ function FeatureCard({
   icon,
   title,
   description,
+  href,
 }: {
   icon: string;
   title: string;
   description: string;
+  href?: string;
 }) {
-  return (
-    <div className="group rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-md shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-lg hover:-translate-y-1">
+  const content = (
+    <>
       <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-sm font-bold text-[var(--primary)]">
         {icon}
       </div>
@@ -75,6 +78,28 @@ function FeatureCard({
       <p className="text-sm leading-relaxed text-[var(--muted)]">
         {description}
       </p>
+      {href && (
+        <span className="mt-3 inline-block text-xs font-medium text-[var(--primary)]">
+          Learn more &rarr;
+        </span>
+      )}
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className="group rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-md shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-lg hover:-translate-y-1"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="group rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-md shadow-[var(--card-shadow)] transition-all hover:border-[var(--primary)]/40 hover:shadow-lg hover:-translate-y-1">
+      {content}
     </div>
   );
 }
