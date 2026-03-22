@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getLibraryBySlug } from "@/lib/api";
 import { ScoreBadge, ScoreBar } from "@/components/ScoreBadge";
 import { Link } from "@/i18n/navigation";
@@ -10,7 +10,7 @@ export default async function LibraryPage({
 }) {
   const { registry, name: rawName } = await params;
   const name = decodeURIComponent(rawName);
-  const t = useTranslations("library");
+  const t = await getTranslations("library");
 
   let library;
   try {

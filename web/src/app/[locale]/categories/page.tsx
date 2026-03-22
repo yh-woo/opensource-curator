@@ -1,9 +1,9 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getCategories } from "@/lib/api";
 
 export default async function CategoriesPage() {
-  const t = useTranslations("categories");
+  const t = await getTranslations("categories");
 
   let categories;
   try {

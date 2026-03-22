@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getCategory } from "@/lib/api";
 import { LibraryTable } from "@/components/LibraryTable";
 import { Link } from "@/i18n/navigation";
@@ -9,7 +9,7 @@ export default async function CategoryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const t = useTranslations("category");
+  const t = await getTranslations("category");
 
   let category;
   try {
